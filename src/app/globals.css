@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fffbf3;
+  --foreground: #0f172a;
+  --solar-50: #fff5e6;
+  --solar-100: #ffe5c2;
+  --solar-200: #ffcc80;
+  --solar-300: #ffa94d;
+  --solar-400: #ff8a26;
+  --solar-500: #f0641f;
+  --solar-600: #e94e1b;
+  --solar-700: #c43c12;
+  --brand-navy: #1f3a93;
+  --brand-navy-deep: #16286b;
+  --brand-blue: #3651c9;
+  --brand-violet: #5b2fb6;
+  --sky-deep: #1f3a93;
+  --sky-mid: #3651c9;
+  --eco-500: #10b981;
+  --eco-600: #059669;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-solar-50: var(--solar-50);
+  --color-solar-100: var(--solar-100);
+  --color-solar-200: var(--solar-200);
+  --color-solar-300: var(--solar-300);
+  --color-solar-400: var(--solar-400);
+  --color-solar-500: var(--solar-500);
+  --color-solar-600: var(--solar-600);
+  --color-solar-700: var(--solar-700);
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-navy-deep: var(--brand-navy-deep);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-violet: var(--brand-violet);
+  --color-sky-deep: var(--sky-deep);
+  --color-sky-mid: var(--sky-mid);
+  --color-eco-500: var(--eco-500);
+  --color-eco-600: var(--eco-600);
+  --font-sans: var(--font-poppins);
+  --font-display: var(--font-poppins);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+}
+
+@keyframes solar-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes sun-pulse {
+  0%, 100% { box-shadow: 0 0 60px 10px rgba(255, 157, 38, 0.45); }
+  50% { box-shadow: 0 0 100px 30px rgba(255, 157, 38, 0.7); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-solar-spin {
+  animation: solar-spin 60s linear infinite;
+}
+
+.animate-sun-pulse {
+  animation: sun-pulse 4s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, #e94e1b 0%, #ff9d26 50%, #e94e1b 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+.solar-gradient {
+  background: linear-gradient(135deg, #fff8eb 0%, #ffefc7 50%, #ffdd8a 100%);
+}
+
+.sun-gradient {
+  background: radial-gradient(circle at 30% 20%, #ffd940 0%, #ff9d26 45%, #e94e1b 100%);
+}
+
+.sky-gradient {
+  background: linear-gradient(135deg, #3b82f6 0%, #3651c9 55%, #5b2fb6 100%);
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, #1f3a93 0%, #3651c9 50%, #5b2fb6 100%);
+}
+
+.hero-gradient {
+  background:
+    radial-gradient(ellipse at top right, rgba(255, 157, 38, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at bottom left, rgba(54, 81, 201, 0.18) 0%, transparent 55%),
+    linear-gradient(135deg, #fffbf3 0%, #fff5e6 100%);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 196, 77, 0.2);
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px -15px rgba(249, 115, 22, 0.35);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ff9d26 0%, #e94e1b 100%);
+  color: white;
+  box-shadow: 0 8px 22px -8px rgba(233, 78, 27, 0.65);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -8px rgba(233, 78, 27, 0.8);
+}
+
+.btn-outline {
+  border: 2px solid #e94e1b;
+  color: #c43c12;
+  background: rgba(255, 255, 255, 0.65);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-outline:hover {
+  background: #e94e1b;
+  color: white;
+}
+
+.btn-navy {
+  background: linear-gradient(135deg, #1f3a93 0%, #3651c9 100%);
+  color: white;
+  box-shadow: 0 8px 22px -8px rgba(31, 58, 147, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-navy:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -8px rgba(31, 58, 147, 0.8);
+}
+
+.section-pad {
+  padding-top: clamp(3rem, 7vw, 6rem);
+  padding-bottom: clamp(3rem, 7vw, 6rem);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(249, 115, 22, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(249, 115, 22, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
