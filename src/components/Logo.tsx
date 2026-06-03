@@ -10,10 +10,10 @@ export function Logo({ variant = "mark", className, priority }: LogoProps) {
   if (variant === "full") {
     return (
       <Image
-        src="/logo-full.svg"
+        src="/pps-logo-full.png"
         alt="Pragathi Power Solutions — Power from the Sun to Power Everyone"
-        width={1280}
-        height={320}
+        width={4379}
+        height={630}
         priority={priority}
         className={className}
       />
@@ -21,10 +21,10 @@ export function Logo({ variant = "mark", className, priority }: LogoProps) {
   }
   return (
     <Image
-      src="/logo-mark.svg"
+      src="/pps-logo-mark.png"
       alt="Pragathi Power Solutions logo"
-      width={360}
-      height={280}
+      width={1419}
+      height={630}
       priority={priority}
       className={className}
     />

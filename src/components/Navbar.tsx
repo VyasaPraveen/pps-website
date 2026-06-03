@@ -32,20 +32,12 @@ export function Navbar() {
       <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-brand-navy via-brand-violet to-solar-600" aria-hidden />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between md:h-20">
-          <Link href="/" className="flex items-center gap-3 group" aria-label="Pragathi Power Solutions home">
+          <Link href="/" className="flex items-center group" aria-label="Pragathi Power Solutions home">
             <Logo
-              variant="mark"
+              variant="full"
               priority
-              className="h-12 w-auto md:h-14 transition-transform group-hover:scale-105"
+              className="h-9 w-auto sm:h-10 md:h-12 transition-transform group-hover:scale-[1.03]"
             />
-            <span className="hidden sm:flex flex-col leading-tight">
-              <span className="font-extrabold text-base md:text-lg text-brand-navy tracking-tight">
-                Pragathi Power Solutions
-              </span>
-              <span className="text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-solar-600 font-bold">
-                Since 2012 · TATA Power Solar Partner
-              </span>
-            </span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1">

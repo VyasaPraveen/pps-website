@@ -3,20 +3,24 @@
 :root {
   --background: #fffbf3;
   --foreground: #0f172a;
-  --solar-50: #fff5e6;
-  --solar-100: #ffe5c2;
-  --solar-200: #ffcc80;
-  --solar-300: #ffa94d;
-  --solar-400: #ff8a26;
-  --solar-500: #f0641f;
-  --solar-600: #e94e1b;
-  --solar-700: #c43c12;
-  --brand-navy: #1f3a93;
-  --brand-navy-deep: #16286b;
-  --brand-blue: #3651c9;
-  --brand-violet: #5b2fb6;
-  --sky-deep: #1f3a93;
-  --sky-mid: #3651c9;
+  /* Sun amber → tagline red, sampled from the PPS logo */
+  --solar-50: #fff6e6;
+  --solar-100: #ffe7bf;
+  --solar-200: #ffd285;
+  --solar-300: #ffbb47;
+  --solar-400: #ffa212;
+  --solar-500: #f5841f;
+  --solar-600: #df1c00;
+  --solar-700: #b81700;
+  /* Navy wordmark + panel blues/violet from the PPS logo */
+  --brand-navy: #1d2f7e;
+  --brand-navy-deep: #14225e;
+  --brand-blue: #2e5bd6;
+  --brand-cyan: #29abe2;
+  --brand-violet: #6a2c91;
+  --brand-red: #df1c00;
+  --sky-deep: #1d2f7e;
+  --sky-mid: #2e5bd6;
   --eco-500: #10b981;
   --eco-600: #059669;
 }
@@ -35,7 +39,9 @@
   --color-brand-navy: var(--brand-navy);
   --color-brand-navy-deep: var(--brand-navy-deep);
   --color-brand-blue: var(--brand-blue);
+  --color-brand-cyan: var(--brand-cyan);
   --color-brand-violet: var(--brand-violet);
+  --color-brand-red: var(--brand-red);
   --color-sky-deep: var(--sky-deep);
   --color-sky-mid: var(--sky-mid);
   --color-eco-500: var(--eco-500);
@@ -96,7 +102,7 @@ body {
 }
 
 .text-shimmer {
-  background: linear-gradient(90deg, #e94e1b 0%, #ff9d26 50%, #e94e1b 100%);
+  background: linear-gradient(90deg, #df1c00 0%, #ffa212 50%, #df1c00 100%);
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -109,21 +115,21 @@ body {
 }
 
 .sun-gradient {
-  background: radial-gradient(circle at 30% 20%, #ffd940 0%, #ff9d26 45%, #e94e1b 100%);
+  background: radial-gradient(circle at 30% 20%, #ffd24a 0%, #ffa212 45%, #df1c00 100%);
 }
 
 .sky-gradient {
-  background: linear-gradient(135deg, #3b82f6 0%, #3651c9 55%, #5b2fb6 100%);
+  background: linear-gradient(135deg, #29abe2 0%, #2e5bd6 55%, #6a2c91 100%);
 }
 
 .brand-gradient {
-  background: linear-gradient(135deg, #1f3a93 0%, #3651c9 50%, #5b2fb6 100%);
+  background: linear-gradient(135deg, #1d2f7e 0%, #2e5bd6 50%, #6a2c91 100%);
 }
 
 .hero-gradient {
   background:
-    radial-gradient(ellipse at top right, rgba(255, 157, 38, 0.35) 0%, transparent 55%),
-    radial-gradient(ellipse at bottom left, rgba(54, 81, 201, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at top right, rgba(255, 162, 18, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at bottom left, rgba(46, 91, 214, 0.18) 0%, transparent 55%),
     linear-gradient(135deg, #fffbf3 0%, #fff5e6 100%);
 }
 
@@ -140,43 +146,43 @@ body {
 
 .card-hover:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px -15px rgba(249, 115, 22, 0.35);
+  box-shadow: 0 20px 50px -15px rgba(255, 162, 18, 0.4);
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #ff9d26 0%, #e94e1b 100%);
+  background: linear-gradient(135deg, #ffa212 0%, #df1c00 100%);
   color: white;
-  box-shadow: 0 8px 22px -8px rgba(233, 78, 27, 0.65);
+  box-shadow: 0 8px 22px -8px rgba(223, 28, 0, 0.65);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px -8px rgba(233, 78, 27, 0.8);
+  box-shadow: 0 14px 30px -8px rgba(223, 28, 0, 0.8);
 }
 
 .btn-outline {
-  border: 2px solid #e94e1b;
-  color: #c43c12;
+  border: 2px solid #df1c00;
+  color: #b81700;
   background: rgba(255, 255, 255, 0.65);
   transition: background 0.2s ease, color 0.2s ease;
 }
 
 .btn-outline:hover {
-  background: #e94e1b;
+  background: #df1c00;
   color: white;
 }
 
 .btn-navy {
-  background: linear-gradient(135deg, #1f3a93 0%, #3651c9 100%);
+  background: linear-gradient(135deg, #1d2f7e 0%, #2e5bd6 100%);
   color: white;
-  box-shadow: 0 8px 22px -8px rgba(31, 58, 147, 0.6);
+  box-shadow: 0 8px 22px -8px rgba(29, 47, 126, 0.6);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-navy:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px -8px rgba(31, 58, 147, 0.8);
+  box-shadow: 0 14px 30px -8px rgba(29, 47, 126, 0.8);
 }
 
 .section-pad {
@@ -186,7 +192,7 @@ body {
 
 .grid-bg {
   background-image:
-    linear-gradient(rgba(249, 115, 22, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(249, 115, 22, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(255, 162, 18, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 162, 18, 0.08) 1px, transparent 1px);
   background-size: 32px 32px;
 }
