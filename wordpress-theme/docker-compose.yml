@@ -1,0 +1,57 @@
+name: pps-preview
+
+services:
+  db:
+    image: mariadb:11
+    environment:
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wp
+      MARIADB_PASSWORD: wp
+      MARIADB_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  wordpress:
+    image: wordpress:php8.2-apache
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: wp
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - wp_data:/var/www/html
+      # Mount the theme live so edits show up on refresh.
+      - ./pragathi-power-solutions:/var/www/html/wp-content/themes/pragathi-power-solutions
+
+  # One-shot: installs WordPress and activates the PPS theme, then exits.
+  setup:
+    image: wordpress:cli-php8.2
+    depends_on:
+      wordpress:
+        condition: service_started
+      db:
+        condition: service_healthy
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: wp
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - wp_data:/var/www/html
+      - ./pragathi-power-solutions:/var/www/html/wp-content/themes/pragathi-power-solutions
+    # Single-line entrypoint (overrides the cli image's default `wp` entrypoint).
+    entrypoint: ["sh", "-c", "sleep 8; until wp core is-installed --allow-root 2>/dev/null; do wp core install --url=http://localhost:8080 --title='Pragathi Power Solutions' --admin_user=admin --admin_password=admin --admin_email=admin@example.com --skip-email --allow-root || sleep 4; done; wp theme activate pragathi-power-solutions --allow-root; wp rewrite structure '/%postname%/' --allow-root; wp rewrite flush --hard --allow-root; echo PPS-SETUP-DONE"]
+
+volumes:
+  db_data:
+  wp_data:
