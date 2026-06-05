@@ -9,11 +9,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PPS_VERSION', '1.0.2' );
+define( 'PPS_VERSION', '1.2.2' );
 
 require_once get_template_directory() . '/inc/data.php';
 require_once get_template_directory() . '/inc/icons.php';
 require_once get_template_directory() . '/inc/template-helpers.php';
+require_once get_template_directory() . '/inc/service-pages.php';
 
 /**
  * Theme setup.
@@ -57,7 +58,7 @@ function pps_assets() {
 	// Google Font: Poppins (matches the original design).
 	wp_enqueue_style(
 		'pps-fonts',
-		'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap',
+		'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap',
 		array(),
 		null
 	);
@@ -105,6 +106,114 @@ function pps_resource_hints( $hints, $relation_type ) {
 add_filter( 'wp_resource_hints', 'pps_resource_hints', 10, 2 );
 
 /**
+ * Remove the WordPress emoji detection script and styles (performance).
+ * Modern browsers render native unicode emoji fine without this.
+ */
+function pps_disable_emojis() {
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+	add_filter( 'tiny_mce_plugins', 'pps_disable_emojis_tinymce' );
+	add_filter( 'wp_resource_hints', 'pps_disable_emojis_dns_prefetch', 10, 2 );
+}
+add_action( 'init', 'pps_disable_emojis' );
+
+/** Strip the emoji TinyMCE plugin. */
+function pps_disable_emojis_tinymce( $plugins ) {
+	return is_array( $plugins ) ? array_diff( $plugins, array( 'wpemoji' ) ) : array();
+}
+
+/** Drop the s.w.org emoji dns-prefetch hint. */
+function pps_disable_emojis_dns_prefetch( $urls, $relation_type ) {
+	if ( 'dns-prefetch' === $relation_type ) {
+		$emoji_svg = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/' );
+		$urls      = array_diff( $urls, array( $emoji_svg ) );
+	}
+	return $urls;
+}
+
+/**
+ * Preload the header logo (the above-the-fold LCP image on every page).
+ */
+function pps_preload_lcp() {
+	printf(
+		'<link rel="preload" as="image" href="%s" type="image/webp" fetchpriority="high" />' . "\n",
+		esc_url( get_template_directory_uri() . '/assets/img/pps-logo-full.webp' )
+	);
+}
+add_action( 'wp_head', 'pps_preload_lcp', 1 );
+
+/**
+ * Emit LocalBusiness structured data (JSON-LD) for local SEO / rich results.
+ * Complements Yoast's WebSite/WebPage graph with full business details.
+ */
+function pps_local_business_schema() {
+	if ( ! is_front_page() && ! is_page( 'contact' ) ) {
+		return;
+	}
+
+	$same_as = array_values(
+		array_filter(
+			array( pps( 'facebook' ), pps( 'instagram' ), pps( 'youtube' ) )
+		)
+	);
+
+	$schema = array(
+		'@context'                  => 'https://schema.org',
+		'@type'                     => 'LocalBusiness',
+		'@id'                       => home_url( '/#business' ),
+		'name'                      => pps( 'name' ),
+		'description'               => 'Authorised TATA Power Solar channel partner in Rayalaseema. Rooftop solar, solar water heating & heat pumps, street lights, fencing, pumpsets and AMC.',
+		'url'                       => home_url( '/' ),
+		'logo'                      => get_template_directory_uri() . '/assets/img/pps-logo-mark.png',
+		'image'                     => get_template_directory_uri() . '/assets/img/pps-logo-full.png',
+		'telephone'                 => pps( 'phone' ),
+		'email'                     => pps( 'email' ),
+		'priceRange'                => '₹₹',
+		'foundingDate'              => '2012',
+		'address'                   => array(
+			'@type'           => 'PostalAddress',
+			'streetAddress'   => 'Ground Floor, Ramanujam Circle, 19-3-12/J, Tiruchanoor Road',
+			'addressLocality' => 'Tirupati',
+			'addressRegion'   => 'Andhra Pradesh',
+			'postalCode'      => '517501',
+			'addressCountry'  => 'IN',
+		),
+		'geo'                       => array(
+			'@type'     => 'GeoCoordinates',
+			'latitude'  => '13.6256759',
+			'longitude' => '79.430764',
+		),
+		'areaServed'                => array( 'Tirupati', 'Chittoor', 'Rayalaseema', 'Andhra Pradesh' ),
+		'openingHoursSpecification' => array(
+			array(
+				'@type'     => 'OpeningHoursSpecification',
+				'dayOfWeek' => array( 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ),
+				'opens'     => '09:00',
+				'closes'    => '20:00',
+			),
+			array(
+				'@type'     => 'OpeningHoursSpecification',
+				'dayOfWeek' => 'Sunday',
+				'opens'     => '09:00',
+				'closes'    => '13:30',
+			),
+		),
+	);
+
+	if ( $same_as ) {
+		$schema['sameAs'] = $same_as;
+	}
+
+	echo '<script type="application/ld+json">' . wp_json_encode( $schema ) . '</script>' . "\n";
+}
+add_action( 'wp_head', 'pps_local_business_schema' );
+
+/**
  * Customizer: company details so non-developers can edit contact info.
  */
 function pps_customize_register( $wp_customize ) {
@@ -127,7 +236,6 @@ function pps_customize_register( $wp_customize ) {
 		'pps_facebook'    => __( 'Facebook URL', 'pps' ),
 		'pps_instagram'   => __( 'Instagram URL', 'pps' ),
 		'pps_youtube'     => __( 'YouTube URL', 'pps' ),
-		'pps_linkedin'    => __( 'LinkedIn URL', 'pps' ),
 	);
 
 	foreach ( $fields as $id => $label ) {
@@ -218,6 +326,9 @@ function pps_after_switch_theme() {
 			set_theme_mod( 'nav_menu_locations', $locations );
 		}
 	}
+
+	// Seed the individual service pages (editable in Gutenberg).
+	pps_seed_service_pages();
 
 	flush_rewrite_rules();
 }

@@ -49,6 +49,10 @@ function pps_contact_card( $icon, $title, $line, $href = '', $external = false, 
 }
 ?>
 
+<div class="container branch-strip-wrap">
+	<?php pps_branch_strip( 'contact' ); ?>
+</div>
+
 <section class="section-pad">
 	<div class="container contact-grid">
 		<aside class="contact-aside">
@@ -56,7 +60,8 @@ function pps_contact_card( $icon, $title, $line, $href = '', $external = false, 
 			pps_contact_card( 'phone', 'Call Us', pps( 'phone' ), pps( 'phone_href' ), false, true );
 			pps_contact_card( 'whatsapp', 'WhatsApp', 'Quick quote on chat', pps( 'whatsapp' ), true );
 			pps_contact_card( 'mail', 'Email', pps( 'email' ), 'mailto:' . pps( 'email' ) );
-			pps_contact_card( 'pin', 'Visit Office', pps( 'address' ) );
+			pps_contact_card( 'pin', 'Visit Office (Tirupati)', pps( 'address' ) );
+			pps_contact_card( 'pin', 'Srikalahasthi Branch — Opening Soon', '#7-508, Ground Floor, P.V. Road, Opp RTC Bus Stand, Sri Kalahasthi' );
 			pps_contact_card( 'clock', 'Working Hours', array( 'Mon - Sat : 9:00 AM - 8:00 PM', 'Sun : 9:00 AM - 1:30 PM' ) );
 			?>
 			<div class="card" style="padding:1.5rem">
@@ -65,7 +70,6 @@ function pps_contact_card( $icon, $title, $line, $href = '', $external = false, 
 					<a href="<?php echo esc_url( pps( 'facebook' ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-ic"><?php pps_icon( 'facebook', 18 ); ?></a>
 					<a href="<?php echo esc_url( pps( 'instagram' ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-ic"><?php pps_icon( 'instagram', 18 ); ?></a>
 					<a href="<?php echo esc_url( pps( 'youtube' ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-ic"><?php pps_icon( 'youtube', 18 ); ?></a>
-					<a href="<?php echo esc_url( pps( 'linkedin' ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-ic"><?php pps_icon( 'linkedin', 18 ); ?></a>
 				</div>
 			</div>
 		</aside>
@@ -81,11 +85,13 @@ function pps_contact_card( $icon, $title, $line, $href = '', $external = false, 
 	<div class="container">
 		<?php pps_section_header( 'Find Us', 'Visit our Tirupati office', 'Drop in for a chat, a system tour, or to see real components up close.' ); ?>
 		<div class="map-wrap">
-			<iframe title="Pragathi Power Solutions, Tirupati office map"
-				src="https://www.openstreetmap.org/export/embed.html?bbox=79.41%2C13.62%2C79.45%2C13.66&amp;layer=mapnik&amp;marker=13.6404%2C79.4290"
-				loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			<iframe title="Pragathi Power Solutions, Tirupati office location on Google Maps"
+				src="https://maps.google.com/maps?q=13.6256759,79.430764%20(Pragathi%20Power%20Solutions)&amp;z=16&amp;output=embed"
+				loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
 		</div>
-		<p class="map-note">Ramanuja Circle, Tiruchanoor Road, opp. Fly Over Pillar No: 2, Tirupati 517501.</p>
+		<p class="map-note">Ground Floor, Ramanujam Circle, 19-3-12/J, Tiruchanoor Rd, Tirupati, Andhra Pradesh 517501.
+			<a class="map-dir" href="https://maps.app.goo.gl/w47KY88TtBH4sR2QA" target="_blank" rel="noopener noreferrer"><?php pps_icon( 'pin', 14 ); ?> Get Directions</a>
+		</p>
 	</div>
 </section>
 

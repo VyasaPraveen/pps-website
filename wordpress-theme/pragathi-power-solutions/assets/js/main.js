@@ -9,7 +9,82 @@
     initCalculator();
     initContactForm();
     initCountdown();
+    initReveal();
+    initAnnounce();
   });
+
+  /* New-branch announcement modal — shown on each home-page load (the modal
+     is only rendered on the front page). */
+  function initAnnounce() {
+    var modal = document.querySelector("[data-announce]");
+    if (!modal) return;
+
+    var close = function () {
+      modal.classList.remove("open");
+      window.setTimeout(function () { modal.hidden = true; }, 300);
+      document.removeEventListener("keydown", onKey);
+    };
+    var onKey = function (e) {
+      if (e.key === "Escape" || e.keyCode === 27) close();
+    };
+
+    var open = function () {
+      modal.hidden = false;
+      // next frame so the CSS transition runs
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () { modal.classList.add("open"); });
+      });
+      document.addEventListener("keydown", onKey);
+    };
+
+    modal.querySelectorAll("[data-announce-close]").forEach(function (btn) {
+      btn.addEventListener("click", close);
+    });
+
+    window.setTimeout(open, 1200);
+  }
+
+  /* Scroll-reveal: fade/slide elements in as they enter the viewport */
+  function initReveal() {
+    var html = document.documentElement;
+    var selector = [
+      ".section-header", ".service-card", ".benefit-card", ".subsidy-card",
+      ".subsidy-table-wrap", ".subsidy-special", ".timeline-card", ".compare",
+      ".supply-card", ".feature-list", ".impact-card", ".testi", ".proj-card", ".kp-card",
+      ".tile", ".sys-card", ".contact-card", ".founder", ".map-wrap", ".cta",
+      ".partner-visual", ".savings-calc", ".faq-item"
+    ].join(",");
+    var els = Array.prototype.slice.call(document.querySelectorAll(selector));
+    if (!els.length) return;
+
+    // No IntersectionObserver -> reveal everything (remove the hiding hook).
+    if (!("IntersectionObserver" in window)) {
+      html.classList.remove("js");
+      return;
+    }
+
+    // Stagger siblings that share a parent for a polished cascade.
+    var counts = {};
+    els.forEach(function (el) {
+      var key = el.parentNode ? (el.parentNode.className || "p") : "p";
+      counts[key] = (counts[key] || 0);
+      var i = counts[key]++;
+      if (i > 0) {
+        el.style.transitionDelay = Math.min(i, 6) * 0.07 + "s";
+      }
+    });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-revealed");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+
+    els.forEach(function (el) { io.observe(el); });
+  }
 
   /* Countdown timer to the scheme target date */
   function initCountdown() {

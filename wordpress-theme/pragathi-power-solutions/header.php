@@ -16,10 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="theme-color" content="#1d2f7e" />
 	<link rel="profile" href="https://gmpg.org/xfn/11" />
+	<script>document.documentElement.className += ' js';</script>
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+<a class="skip-link" href="#content"><?php esc_html_e( 'Skip to content', 'pps' ); ?></a>
 
 <header class="site-header" data-header>
 	<span class="header-accent" aria-hidden="true"></span>
@@ -56,8 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</nav>
 
 			<div class="nav-cta">
-				<a href="<?php echo esc_attr( pps( 'phone_href' ) ); ?>" class="nav-phone"><?php pps_icon( 'phone', 18 ); ?> <?php echo esc_html( pps( 'phone' ) ); ?></a>
-				<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-primary">Get Free Quote</a>
+				<a href="<?php echo esc_attr( pps( 'phone_href' ) ); ?>" class="btn btn-primary nav-call"><?php pps_icon( 'phone', 18 ); ?> Call Now</a>
 			</div>
 
 			<button type="button" class="nav-toggle" data-nav-toggle aria-label="<?php esc_attr_e( 'Toggle menu', 'pps' ); ?>" aria-expanded="false">

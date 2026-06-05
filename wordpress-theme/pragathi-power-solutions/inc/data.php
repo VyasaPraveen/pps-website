@@ -24,7 +24,7 @@ function pps_site() {
 		'designation'   => 'Authorised TATA Power Solar Partners in Rayalaseema',
 		'city'          => 'Tirupati',
 		'region'        => 'Rayalaseema, Andhra Pradesh',
-		'address'       => 'Ramanuja Circle, Tiruchanoor Road, OPP Fly Over Pillar No: 2, Tirupati - 517501',
+		'address'       => 'Ground Floor, Ramanujam Circle, 19-3-12/J, Tiruchanoor Rd, Tirupati, Andhra Pradesh 517501',
 		'phone'         => '+91 9701426440',
 		'phone_raw'     => '919701426440',
 		'email'         => 'ppstirupathi@gmail.com',
@@ -33,7 +33,6 @@ function pps_site() {
 		'facebook'      => 'https://facebook.com/PragathiPowerSolutions',
 		'instagram'     => 'https://instagram.com/pragathi_power_solutions',
 		'youtube'       => 'https://youtube.com/@PragathiPowerSolutionsOfficial',
-		'linkedin'      => 'https://www.linkedin.com/company/pragathi-power-solutions',
 	);
 
 	// Allow Customizer overrides where set.
@@ -48,7 +47,6 @@ function pps_site() {
 		'facebook'    => 'pps_facebook',
 		'instagram'   => 'pps_instagram',
 		'youtube'     => 'pps_youtube',
-		'linkedin'    => 'pps_linkedin',
 	);
 	foreach ( $map as $key => $setting ) {
 		$val = get_theme_mod( $setting, '' );
@@ -75,8 +73,7 @@ function pps_nav_links() {
 	return array(
 		array( 'slug' => '', 'label' => 'Home' ),
 		array( 'slug' => 'about', 'label' => 'About' ),
-		array( 'slug' => 'services', 'label' => 'Services' ),
-		array( 'slug' => 'projects', 'label' => 'Projects' ),
+		array( 'slug' => 'clients-and-projects', 'label' => 'Clients & Projects' ),
 		array( 'slug' => 'gallery', 'label' => 'Gallery' ),
 		array( 'slug' => 'contact', 'label' => 'Contact' ),
 	);
@@ -86,6 +83,7 @@ function pps_services() {
 	return array(
 		array(
 			'slug'        => 'rooftop',
+			'page'        => 'solar-rooftop-systems',
 			'title'       => 'Solar Rooftop Systems',
 			'short'       => 'On-grid power plants for homes and businesses.',
 			'icon'        => 'panel',
@@ -98,23 +96,27 @@ function pps_services() {
 		),
 		array(
 			'slug'        => 'thermal',
-			'title'       => 'Solar Thermal & Hot Water',
-			'short'       => 'Reliable hot water for homes, hotels and industry.',
+			'page'        => 'solar-water-heating',
+			'title'       => 'Solar Thermal — Water Heating Solutions',
+			'short'       => 'Solar Hot Water & Heat Pump — efficient, eco-friendly hot water for homes, hotels, hospitals, hostels, commercial establishments and industries.',
 			'icon'        => 'thermal',
 			'highlights'  => array(
-				'100 to 5,000 litres per day capacity',
-				'Pressurised and non-pressurised models',
-				'BIS-certified collectors',
-				'Cuts geyser power use to near zero',
+				'Available in capacities from 100 litres per day (LPD)',
+				'Choice of pressurised and non-pressurised models',
+				'High-performance BIS-certified solar collectors',
+				'Cuts electricity use by minimising geyser usage',
+				'Reliable hot water year-round with low maintenance',
+				'Space constraint? We also install Heat Pumps',
 			),
 		),
 		array(
 			'slug'        => 'street-lights',
+			'page'        => 'solar-street-lights',
 			'title'       => 'Solar Street Lights',
 			'short'       => 'All-in-one lighting powered entirely by sunlight.',
 			'icon'        => 'streetlight',
 			'highlights'  => array(
-				'12W to 60W integrated luminaires',
+				'Integrated all-in-one luminaires starting from 12W',
 				'Auto dusk-to-dawn operation',
 				'Lithium-ion storage, 5+ year life',
 				'Zero electricity bills',
@@ -122,6 +124,7 @@ function pps_services() {
 		),
 		array(
 			'slug'        => 'fence',
+			'page'        => 'solar-fencing',
 			'title'       => 'Solar Fencing',
 			'short'       => 'Solar-powered electric fences for farms and estates.',
 			'icon'        => 'fence',
@@ -134,6 +137,7 @@ function pps_services() {
 		),
 		array(
 			'slug'        => 'pumps',
+			'page'        => 'solar-pumpsets',
 			'title'       => 'Solar Pumpsets',
 			'short'       => 'Diesel-free water pumping for agriculture.',
 			'icon'        => 'pump',
@@ -146,6 +150,7 @@ function pps_services() {
 		),
 		array(
 			'slug'        => 'amc',
+			'page'        => 'solar-amc',
 			'title'       => 'Operation & Maintenance (AMC)',
 			'short'       => 'Annual care to keep your plant generating at peak.',
 			'icon'        => 'amc',
@@ -187,10 +192,10 @@ function pps_process() {
 
 function pps_stats() {
 	return array(
-		array( 'value' => '13', 'suffix' => '+', 'label' => 'Years in Solar' ),
-		array( 'value' => '1500', 'suffix' => '+', 'label' => 'Happy Households' ),
-		array( 'value' => '5', 'suffix' => 'MW+', 'label' => 'Installed Capacity' ),
-		array( 'value' => '140', 'suffix' => '+', 'label' => 'AMC Contracts' ),
+		array( 'value' => '14', 'suffix' => '+', 'label' => 'Years in Solar' ),
+		array( 'value' => '4700', 'suffix' => '+', 'label' => 'Happy Customers' ),
+		array( 'value' => '30', 'suffix' => 'MW+', 'label' => 'Installed Capacity' ),
+		array( 'value' => '100', 'suffix' => '%', 'label' => 'Subsidy Assistance' ),
 	);
 }
 
@@ -272,6 +277,100 @@ function pps_sectors() {
 	);
 }
 
+/**
+ * Key projects & clients, grouped by sector. Each group has a headline
+ * installed capacity and a list of client => capacity entries.
+ */
+function pps_key_projects() {
+	return array(
+		array(
+			'emoji'   => '🎓',
+			'title'   => 'Educational Institutions',
+			'total'   => '4 MW+',
+			'clients' => array(
+				array( 'APREIS Schools and College', '70 KW' ),
+				array( 'Edify, Padmavathi Pharmacy', '180 KW' ),
+				array( 'Krishna Teja (Chadalavada)', '150 KW' ),
+				array( 'MITS – Madanapalle', '150 KW' ),
+				array( 'Ambedkar Law College', '45 KW' ),
+				array( 'Sainik Schools – Kalikiri', '150 KW' ),
+				array( 'SV University', '1.8 MW' ),
+				array( 'Seven Hills Pharmacy', '50 KW' ),
+			),
+		),
+		array(
+			'emoji'   => '🏭',
+			'title'   => 'Industries',
+			'total'   => '12 MW+',
+			'clients' => array(
+				array( 'Vishnu Barium Pvt. Ltd', '4.5 MW' ),
+				array( 'Apache Foot Wears, INDIA Ltd', '2 MW' ),
+				array( 'ITC Ltd – Hyderabad', '1 MW' ),
+				array( 'Indus Coffee – TADA', '1 MW' ),
+				array( 'Amara Raja Electronics Ltd (Diguvamagham)', '5 KW' ),
+				array( 'Bhaskar Rice Mill – Yelamanda', '20 KW' ),
+				array( 'Haritha Dairy – Yelamanda', '60 KW' ),
+				array( 'SEAWARD Packaging Ltd.', '500 KW' ),
+				array( 'Sapphire Global Cold Storage, Palamaneru', '250 KW' ),
+				array( 'TATA Motors – Showroom, Tirupati', '60 KW' ),
+			),
+		),
+		array(
+			'emoji'   => '🏢',
+			'title'   => 'Commercial Sites',
+			'total'   => '135 KW+',
+			'clients' => array(
+				array( 'Basavaiah & Co', '30 KW' ),
+				array( 'Chalapathi Towers', '20 KW' ),
+				array( 'Gokul Heights', '75 KW' ),
+				array( 'Prasanth Lodge', '25 KW' ),
+				array( 'Ashok Function Hall', '40 KW' ),
+				array( 'KVR Jewellers', '15 KW' ),
+			),
+		),
+		array(
+			'emoji'   => '🏥',
+			'title'   => 'Hospitals',
+			'total'   => '1 MW+',
+			'clients' => array(
+				array( 'Sruthi Hospitals', '20 KW' ),
+				array( 'SVRR Govt. Hospitals', '423 KW' ),
+				array( 'PES – Kuppam', '500 KW' ),
+				array( 'Gayatri Hospital, Tirupati', '20 KW' ),
+				array( 'J.P. Dental Hospital, Tirupati', '15 KW' ),
+			),
+		),
+		array(
+			'emoji'   => '🏛️',
+			'title'   => 'Govt. & NGOs',
+			'total'   => '100 KW+',
+			'clients' => array(
+				array( 'Govt. ITI, Tirupati', '5 KW' ),
+				array( 'Collector Office – Chittoor', '5 KW' ),
+				array( 'OVR ITI', '9 KW' ),
+				array( 'Govt. High School, Puthalapattu', '5 KW' ),
+				array( 'Z.P. Office – Chittoor', '35 KW' ),
+			),
+		),
+		array(
+			'emoji'   => '🏠',
+			'title'   => 'Domestic',
+			'total'   => '800 KW+',
+			'clients' => array(
+				array( 'Smt Galla Aruna Kumari', '3 KW' ),
+				array( 'Sri Balakrishna Reddy M (Hotel Bliss)', '5 KW' ),
+				array( 'Sri K Ranganatham (Ex CMD – SPDCL)', '3 KW' ),
+				array( 'Sri Ram Mohan Reddy (Rtd. Bank Employee)', '3 KW' ),
+				array( 'Dr Tarachand (Ophthalmologist)', '5 KW' ),
+				array( 'Sri P Muni Reddy (Advocate)', '10 KW' ),
+				array( 'Smt M Sulochanamma (Edify Group)', '10 KW' ),
+				array( 'Sri A Gangi Reddy (SVCE Group)', '10 KW' ),
+				array( 'Sri Madhusudhana (Chartered Accountant)', '6 KW' ),
+			),
+		),
+	);
+}
+
 function pps_gallery_tiles() {
 	return array(
 		array( 'title' => 'Residential Rooftop', 'caption' => '5 kW mono-PERC plant — Tirupati', 'category' => 'Rooftop', 'grad' => 'grad-amber', 'icon' => 'panel' ),
@@ -288,9 +387,47 @@ function pps_gallery_tiles() {
 
 function pps_why_choose() {
 	return array(
-		array( 'stat' => '13+ yrs', 'title' => 'Industry Experience', 'text' => 'Over a decade of pure solar focus. We\'ve seen every roof type and use case.' ),
+		array( 'stat' => '14+ yrs', 'title' => 'Industry Experience', 'text' => 'Over a decade of pure solar focus. We\'ve seen every roof type and use case.' ),
 		array( 'stat' => 'TATA', 'title' => 'Premium Hardware', 'text' => 'Authorised TATA Power Solar partners. Tier-1 panels with 25-year warranty.' ),
-		array( 'stat' => '1500+', 'title' => 'Households Powered', 'text' => 'From village homes to gated villas, our installations span every segment.' ),
+		array( 'stat' => '4700+', 'title' => 'Customers Powered', 'text' => 'From village homes to gated villas, our installations span every segment.' ),
 		array( 'stat' => '100%', 'title' => 'Local Service', 'text' => 'Tirupati-based engineering team. We answer the phone every single time.' ),
+	);
+}
+
+/** Environmental & social impact of installed capacity (as on 31/03/2026). */
+function pps_impact() {
+	return array(
+		array( 'icon' => 'rupee', 'value' => '₹30+ Crore', 'label' => 'Electricity bill savings every month (approx.)' ),
+		array( 'icon' => 'leaf', 'value' => '45,000+ Tons', 'label' => 'CO₂ emissions reduced every year' ),
+		array( 'icon' => 'tree', 'value' => '15,00,000+', 'label' => 'Trees planted every year (equivalent)' ),
+		array( 'icon' => 'bolt', 'value' => 'Clean Energy', 'label' => 'For thousands of homes, businesses & institutions' ),
+		array( 'icon' => 'globe', 'value' => 'Greener India', 'label' => 'Contributing to a sustainable future' ),
+	);
+}
+
+/** "Why choose us" comparison: ordinary installers vs PPS + Tata Power Solar. */
+function pps_compare() {
+	return array(
+		array( 'bad' => 'Limited experience in rooftop solar', 'good' => '14+ years of proven solar experience since 2012' ),
+		array( 'bad' => 'Mostly limited to simple rooftop installations', 'good' => 'Expertise in RCC rooftop, elevated structures, sheet roofs & ground-mounted systems' ),
+		array( 'bad' => 'Small-scale installation exposure only', 'good' => 'Experience from 1 kW to multi-MW projects (up to 4.5 MW single location)' ),
+		array( 'bad' => 'May not be approved for Government subsidy projects', 'good' => 'Authorized vendor for the PM Surya Ghar Subsidy Programme' ),
+		array( 'bad' => 'Local registrations only', 'good' => 'Registered vendor with NREDCAP for projects across Andhra Pradesh' ),
+		array( 'bad' => 'Local brand dependency', 'good' => 'Exclusive Tata Power Solar Channel Partner' ),
+		array( 'bad' => 'Third-party technicians or electricians', 'good' => 'Dedicated in-house trained installation team' ),
+		array( 'bad' => 'Basic or lightweight structure materials', 'good' => 'Complete Hot Dip Galvanized (HDG) structure with legs, purlins & wrappers' ),
+		array( 'bad' => 'Improper roof sealing may cause leakage', 'good' => 'Chemical anchoring & leak-proof sealing methods' ),
+		array( 'bad' => 'Lower grade or undersized cables', 'good' => 'Tata-approved Polycab / KEI copper cables' ),
+		array( 'bad' => 'Limited warranty on BOS items', 'good' => 'Tata-approved ACDB & DCDB with warranty' ),
+		array( 'bad' => 'Earthing quality may not be tested properly', 'good' => 'Proper earthing & LA with megger testing below 5 ohms' ),
+		array( 'bad' => 'Unsafe DC cable routing practices', 'good' => 'Separate conduit routing for positive & negative DC cables' ),
+		array( 'bad' => 'Open conduit ends may attract rodents/insects', 'good' => 'Protective foam sealing for conduit ends' ),
+		array( 'bad' => 'Poor cable identification & servicing issues', 'good' => 'Proper ferrules and identification labeling' ),
+		array( 'bad' => 'No standard installation SOP', 'good' => 'Installation strictly as per Tata Power Solar SOP' ),
+		array( 'bad' => 'Mixed BOS material sourcing', 'good' => 'Complete BOS supply directly from Tata Power Solar' ),
+		array( 'bad' => 'Multiple vendors for warranty claims', 'good' => 'Single comprehensive warranty support' ),
+		array( 'bad' => 'Limited or no quality inspection', 'good' => 'Third-party quality inspection before warranty activation' ),
+		array( 'bad' => 'Service support depends on local technician availability', 'good' => 'Tata Power Solar authorized service support & toll-free assistance' ),
+		array( 'bad' => 'Insurance support may not be included', 'good' => 'System insurance support through Tata Power Solar' ),
 	);
 }

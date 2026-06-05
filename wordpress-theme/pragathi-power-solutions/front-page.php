@@ -26,7 +26,7 @@ get_header();
 				<p class="hero-lead">Get up to &#8377;78,000 central subsidy on rooftop solar under the Government of India&rsquo;s flagship scheme. Pragathi Power Solutions handles your application, installation and subsidy &mdash; end to end.</p>
 
 				<div class="countdown glass" data-countdown data-deadline="2027-03-31T23:59:59+05:30" role="timer" aria-label="Time remaining to avail the PM Surya Ghar scheme">
-					<p class="countdown-label"><?php pps_icon( 'sun', 16 ); ?> Limited-period subsidy &mdash; avail it now</p>
+					<p class="countdown-label"><?php pps_icon( 'sun', 16 ); ?> Limited-period subsidy &mdash; avail it now <span class="countdown-end">Subsidy ends 31<sup>st</sup> March 2027</span></p>
 					<div class="countdown-grid">
 						<div class="cd-box"><span class="cd-num" data-cd-days>00</span><span class="cd-unit">Days</span></div>
 						<div class="cd-box"><span class="cd-num" data-cd-hours>00</span><span class="cd-unit">Hours</span></div>
@@ -36,22 +36,22 @@ get_header();
 				</div>
 
 				<ul class="hero-points">
-					<?php foreach ( array( 'Up to ₹78,000 PM Surya Ghar subsidy', '13+ years experience', 'End-to-end paperwork handled' ) as $point ) : ?>
+					<?php foreach ( array( 'Up to ₹78,000 PM Surya Ghar subsidy', '14+ Years Experience', 'End-to-end paperwork handled' ) as $point ) : ?>
 						<li><span class="dot"><?php pps_icon( 'check', 14 ); ?></span><?php echo esc_html( $point ); ?></li>
 					<?php endforeach; ?>
 				</ul>
 				<div class="hero-actions">
 					<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-primary">Get a Free Quote <?php pps_icon( 'arrow-right', 18 ); ?></a>
-					<a href="<?php echo esc_url( pps( 'whatsapp' ) ); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"><?php pps_icon( 'whatsapp', 18 ); ?> WhatsApp Us</a>
 					<a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="btn btn-outline">Explore Services</a>
 				</div>
 			</div>
 
-			<div class="animate-fade-up delay-120">
+			<div class="animate-fade-up delay-120 hero-visual-col">
+				<?php pps_branch_strip( 'hero' ); ?>
 				<div class="pm-visual">
 						<div class="pm-photo-ring">
 							<div class="pm-photo-wrap">
-								<img src="<?php echo esc_url( pps_img( 'pm-modi.jpg' ) ); ?>" alt="Shri Narendra Modi, Hon&rsquo;ble Prime Minister of India" width="760" height="688" class="pm-photo" />
+								<picture><source srcset="<?php echo esc_url( pps_img( 'pm-modi.webp' ) ); ?>" type="image/webp" /><img src="<?php echo esc_url( pps_img( 'pm-modi.jpg' ) ); ?>" alt="Shri Narendra Modi, Hon&rsquo;ble Prime Minister of India" width="760" height="688" class="pm-photo" loading="eager" decoding="async" fetchpriority="high" /></picture>
 							</div>
 						</div>
 						<div class="pm-caption glass">
@@ -100,6 +100,49 @@ get_header();
 	</div>
 </section>
 
+<!-- PM SURYA GHAR SUBSIDY -->
+<section class="section-pad subsidy" id="subsidy">
+	<span class="bg-grid faint" aria-hidden="true"></span>
+	<div class="container">
+		<div class="section-header sh-center">
+			<span class="eyebrow"><span class="eyebrow-dot"></span>Government of India Scheme</span>
+			<h2 class="section-title">PM Surya Ghar: Muft Bijli Yojana Subsidy <span class="spin-sun" aria-hidden="true"><?php pps_icon( 'sun', 30 ); ?></span></h2>
+			<p class="section-desc">Central-government subsidy you can claim on your rooftop solar — Pragathi Power Solutions files the entire application for you.</p>
+		</div>
+
+		<div class="subsidy-grid">
+			<div class="subsidy-col">
+				<h3 class="subsidy-coltitle">For Residential Households</h3>
+				<div class="subsidy-cards">
+					<div class="subsidy-card"><p class="sc-amt">&#8377;30,000</p><p class="sc-unit">per kW</p><p class="sc-note">up to 2 kW</p></div>
+					<div class="subsidy-card"><p class="sc-amt">&#8377;18,000</p><p class="sc-unit">per kW</p><p class="sc-note">for additional capacity up to 3 kW</p></div>
+					<div class="subsidy-card highlight"><p class="sc-amt">&#8377;78,000</p><p class="sc-unit">maximum</p><p class="sc-note">total subsidy for systems larger than 3 kW</p></div>
+				</div>
+			</div>
+			<div class="subsidy-col">
+				<h3 class="subsidy-coltitle">For GHS / RWA</h3>
+				<div class="subsidy-cards">
+					<div class="subsidy-card"><p class="sc-amt">&#8377;18,000</p><p class="sc-unit">per kW</p><p class="sc-note">Group Housing Society / Resident Welfare Association — common facilities incl. EV charging, up to 500 kW (@3 kW per house)</p></div>
+				</div>
+				<p class="subsidy-special"><?php pps_icon( 'check', 16 ); ?> <span>Special states get an additional <strong>10% subsidy</strong> per kW.</span></p>
+			</div>
+		</div>
+
+		<div class="subsidy-table-wrap">
+			<p class="subsidy-table-title">Suitable rooftop solar capacity for your home</p>
+			<table class="subsidy-table">
+				<thead><tr><th>Avg. monthly consumption (units)</th><th>0&ndash;150</th><th>150&ndash;300</th><th>&gt; 300</th></tr></thead>
+				<tbody><tr><td>Suitable rooftop solar capacity</td><td>1&ndash;2 kW</td><td>2&ndash;3 kW</td><td>Above 3 kW</td></tr></tbody>
+			</table>
+		</div>
+
+		<div class="subsidy-cta">
+			<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-primary">Check your subsidy <?php pps_icon( 'arrow-right', 18 ); ?></a>
+			<a href="<?php echo esc_url( pps( 'whatsapp' ) ); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"><?php pps_icon( 'whatsapp', 18 ); ?> Ask on WhatsApp</a>
+		</div>
+	</div>
+</section>
+
 <!-- CALCULATOR -->
 <section class="section-pad">
 	<div class="container">
@@ -126,9 +169,9 @@ get_header();
 				<div class="partner-card">
 					<?php pps_logo_full(); ?>
 					<div class="partner-mini">
-						<div class="box"><p class="num">13+</p><p class="lab">Years</p></div>
-						<div class="box"><p class="num">1500+</p><p class="lab">Homes</p></div>
-						<div class="box"><p class="num">5MW+</p><p class="lab">Installed</p></div>
+						<div class="box"><p class="num">14+</p><p class="lab">Years</p></div>
+						<div class="box"><p class="num">4700+</p><p class="lab">Customers</p></div>
+						<div class="box"><p class="num">30MW+</p><p class="lab">Installed</p></div>
 					</div>
 				</div>
 			</div>
@@ -152,17 +195,84 @@ get_header();
 				</ul>
 				<div class="btn-row">
 					<a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="btn btn-primary">About Us <?php pps_icon( 'arrow-right', 16 ); ?></a>
-					<a href="<?php echo esc_url( home_url( '/projects/' ) ); ?>" class="btn btn-outline">See Our Projects</a>
+					<a href="<?php echo esc_url( home_url( '/clients-and-projects/' ) ); ?>" class="btn btn-outline">See Our Projects</a>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
+<!-- WHY CHOOSE -->
+<section class="section-pad">
+	<div class="container">
+		<?php pps_section_header( 'Why Choose Us', 'Why Choose Tata Power Solar + Pragathi Power Solutions', 'The right choice for a safe, reliable and long-lasting solar solution — compared point by point.' ); ?>
+		<div class="compare" style="margin-top:3rem">
+			<div class="compare-head">
+				<span class="ch-bad">Local Vendors / Ordinary Installers</span>
+				<span class="ch-good">Pragathi Power Solutions + Tata Power Solar</span>
+			</div>
+			<?php foreach ( pps_compare() as $row ) : ?>
+				<div class="compare-row">
+					<span class="cmp cmp-bad"><span class="cmp-ic"><?php pps_icon( 'close', 16 ); ?></span><span><?php echo esc_html( $row['bad'] ); ?></span></span>
+					<span class="cmp cmp-good"><span class="cmp-ic"><?php pps_icon( 'check', 16 ); ?></span><span><?php echo esc_html( $row['good'] ); ?></span></span>
+				</div>
+			<?php endforeach; ?>
+		</div>
+		<div class="compare-foot">
+			<div><strong>Tata Power Solar Standard</strong><span>Quality &middot; Safety &middot; Reliability &middot; Performance</span></div>
+			<div><strong>Pragathi Power Solutions</strong><span>Experience you can trust, performance you can rely on.</span></div>
+		</div>
+	</div>
+</section>
+
+<!-- MATERIAL SUPPLY -->
+<section class="section-pad bg-soft-down">
+	<div class="container">
+		<?php pps_section_header( 'Material Supply', 'Single Source. Single Warranty. Total Peace of Mind with Tata Power Solar', 'Your entire solar system is sourced from a single trusted provider, ensuring seamless service and hassle-free support.' ); ?>
+		<div class="split" style="margin-top:3rem">
+			<div class="card supply-card">
+				<p>All materials are supplied as per the <strong>Tata Bill of Material (BOM)</strong>. The major advantage is that the entire solar system is sourced from a single provider — including Solar Modules, Inverter, ACDB, DCDB, Earthing and Lightning Arrestor (LA) materials.</p>
+				<p>This ensures a <strong>single comprehensive warranty</strong> for the complete system. In many other cases customers receive separate warranties from different manufacturers — one for the solar modules, another for the inverter, and often no warranty cover for the BOS components.</p>
+				<p>If any service issue arises, customers may need to coordinate with multiple suppliers. With Tata Power Solar there is a <strong>single point of contact</strong> for warranty claims and after-sales support — making service and maintenance far simpler and more convenient.</p>
+			</div>
+			<div>
+				<span class="eyebrow">Covered under one BOM</span>
+				<h2 class="lead-h2">Everything from one trusted source</h2>
+				<p class="lead-p">No chasing different manufacturers for different parts — one Tata Power Solar BOM covers your whole system end to end.</p>
+				<ul class="feature-list">
+					<?php
+					$bom = array( 'Solar Modules', 'Inverter', 'ACDB & DCDB', 'Earthing', 'Lightning Arrestor (LA)', 'Single system-wide warranty' );
+					foreach ( $bom as $bom_item ) :
+						?>
+						<li><span class="ck"><?php pps_icon( 'check', 14 ); ?></span><span><?php echo esc_html( $bom_item ); ?></span></li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- OUR IMPACT -->
+<section class="section-pad impact-section">
+	<div class="container">
+		<?php pps_section_header( 'Our Impact', 'Pragathi Power Solutions Has Installed 30 MW of Solar', 'And that 30 MW is already making a real difference. As on 31 March 2026, here is the environmental and social impact our installations deliver for the planet and society.' ); ?>
+		<div class="impact-grid">
+			<?php foreach ( pps_impact() as $im ) : ?>
+				<div class="impact-card card-hover">
+					<span class="impact-ic"><?php pps_icon( $im['icon'], 26 ); ?></span>
+					<p class="impact-val"><?php echo esc_html( $im['value'] ); ?></p>
+					<p class="impact-lab"><?php echo esc_html( $im['label'] ); ?></p>
+				</div>
+			<?php endforeach; ?>
+		</div>
+		<p class="impact-tagline"><strong>Pragathi Power Solutions</strong> — Powering a Sustainable Tomorrow with Trusted Solar Solutions Since 2012.</p>
+	</div>
+</section>
+
 <!-- TESTIMONIALS -->
 <section class="section-pad bg-soft-up">
 	<div class="container">
-		<?php pps_section_header( 'Customer Voices', 'Trusted by 1500+ households across Tirupati' ); ?>
+		<?php pps_section_header( 'Customer Voices', 'Trusted by 4700+ customers across Rayalaseema' ); ?>
 		<div class="testi-grid">
 			<?php foreach ( pps_testimonials() as $t ) : ?>
 				<figure class="testi card-hover">

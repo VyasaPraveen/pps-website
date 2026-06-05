@@ -30,7 +30,8 @@ function pps_logo_full( $class = '' ) {
 		}
 	}
 	printf(
-		'<img src="%s" alt="%s" class="%s" width="1000" height="144" fetchpriority="high" />',
+		'<picture><source srcset="%s" type="image/webp" /><img src="%s" alt="%s" class="%s" width="1000" height="144" fetchpriority="high" decoding="async" /></picture>',
+		esc_url( pps_img( 'pps-logo-full.webp' ) ),
 		esc_url( pps_img( 'pps-logo-full.png' ) ),
 		esc_attr( pps( 'name' ) . ' — ' . pps( 'tagline' ) ),
 		esc_attr( $class )
@@ -40,7 +41,8 @@ function pps_logo_full( $class = '' ) {
 /** Square / icon-only logo mark. */
 function pps_logo_mark( $class = '' ) {
 	printf(
-		'<img src="%s" alt="%s" class="%s" width="600" height="266" />',
+		'<picture><source srcset="%s" type="image/webp" /><img src="%s" alt="%s" class="%s" width="600" height="266" loading="lazy" decoding="async" /></picture>',
+		esc_url( pps_img( 'pps-logo-mark.webp' ) ),
 		esc_url( pps_img( 'pps-logo-mark.png' ) ),
 		esc_attr( pps( 'name' ) . ' logo' ),
 		esc_attr( $class )
@@ -50,6 +52,27 @@ function pps_logo_mark( $class = '' ) {
 /** Eyebrow pill used above section titles. */
 function pps_eyebrow( $text ) {
 	return '<span class="eyebrow"><span class="eyebrow-dot"></span>' . esc_html( $text ) . '</span>';
+}
+
+/**
+ * Highlighted "new branch opening soon" strip.
+ *
+ * Reused across the hero, contact page and footer. Pass a $variant to scope
+ * the styling (e.g. 'hero', 'contact', 'footer').
+ *
+ * @param string $variant Style variant suffix.
+ */
+function pps_branch_strip( $variant = '' ) {
+	$cls = 'branch-strip';
+	if ( $variant ) {
+		$cls .= ' branch-strip--' . $variant;
+	}
+	?>
+	<div class="<?php echo esc_attr( $cls ); ?>">
+		<span class="branch-strip-ic"><?php pps_icon( 'pin', 18 ); ?></span>
+		<span class="branch-strip-txt"><strong>New Branch Opening Soon</strong> in <span class="branch-strip-place">Srikalahasthi</span></span>
+	</div>
+	<?php
 }
 
 /** Section header block. */
@@ -119,7 +142,8 @@ function pps_service_card( $s ) {
 					<li><span class="check-i"><?php pps_icon( 'check', 16 ); ?></span><span><?php echo esc_html( $h ); ?></span></li>
 				<?php endforeach; ?>
 			</ul>
-			<a href="<?php echo esc_url( home_url( '/services/#' . $s['slug'] ) ); ?>" class="link-more">
+			<?php $service_link = ! empty( $s['page'] ) ? home_url( '/' . $s['page'] . '/' ) : home_url( '/services/#' . $s['slug'] ); ?>
+			<a href="<?php echo esc_url( $service_link ); ?>" class="link-more">
 				Learn more <?php pps_icon( 'arrow-right', 16 ); ?>
 			</a>
 		</div>
