@@ -14,8 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 
 pps_page_header(
-	'Our Clients & Key Projects',
-	'From family rooftops to multi-megawatt industrial plants — a snapshot of the institutions, industries, hospitals and homes we have powered across Rayalaseema.',
+	'Our Key Clients & Projects',
+	'From family rooftops to multi-megawatt industrial plants — a snapshot of the institutions, industries, hospitals and homes we have powered across the Tirupati & Chittoor districts.',
 	array(
 		array( 'label' => 'Home', 'href' => home_url( '/' ) ),
 		array( 'label' => 'Clients & Projects' ),

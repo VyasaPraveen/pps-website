@@ -321,10 +321,10 @@ html.js .is-revealed { opacity: 1 !important; transform: none !important; }
 .compare-row:nth-child(odd) { background: var(--solar-50); }
 .cmp { display: flex; gap: .5rem; align-items: flex-start; padding: .8rem 1rem; font-size: .9rem; line-height: 1.45; }
 .cmp-ic { flex-shrink: 0; display: inline-flex; margin-top: .05rem; }
-.cmp-bad { color: var(--slate-600); border-right: 1px solid var(--solar-100); }
-.cmp-bad .cmp-ic { color: #c0504d; }
-.cmp-good { color: var(--navy); font-weight: 600; }
-.cmp-good .cmp-ic { color: var(--eco-600); }
+.cmp-bad { color: #c0392b; border-right: 1px solid var(--solar-100); }
+.cmp-bad .cmp-ic { color: #c0392b; }
+.cmp-good { color: #15803d; font-weight: 600; }
+.cmp-good .cmp-ic { color: #15803d; }
 .compare-foot { margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .compare-foot > div { display: flex; flex-direction: column; gap: .15rem; padding: 1rem 1.25rem; border-radius: .85rem; background: var(--solar-50); }
 .compare-foot strong { color: var(--navy); font-size: .95rem; }
@@ -481,6 +481,43 @@ html.js .is-revealed { opacity: 1 !important; transform: none !important; }
 .benefit-title { margin-top: 1rem; font-size: 1rem; font-weight: 600; }
 .benefit-desc { margin-top: .375rem; font-size: .875rem; color: var(--slate-600); }
 
+/* Rooftop systems section */
+.rooftop-cols { margin-top: 3rem; display: grid; gap: 1.5rem; }
+@media (min-width: 900px) { .rooftop-cols { grid-template-columns: 1.15fr .85fr; } }
+.rooftop-col { padding: 2.25rem; }
+.rooftop-col-title { display: flex; align-items: center; gap: .6rem; font-size: 1.25rem; font-weight: 700; color: var(--navy); padding-bottom: 1rem; border-bottom: 1px solid var(--solar-100); }
+.rooftop-col-ic { display: inline-flex; align-items: center; justify-content: center; height: 2.25rem; width: 2.25rem; border-radius: .65rem; color: #fff; flex-shrink: 0; }
+.rooftop-col-ic.ic-key { background: linear-gradient(135deg, var(--eco-500), var(--eco-600)); }
+.rooftop-col-ic.ic-fit { background: radial-gradient(circle at 30% 20%, #ffd24a 0%, #ffa212 60%, #df1c00 100%); }
+.rooftop-col .feature-list { margin-top: 1.5rem; }
+.rooftop-benefits { grid-template-columns: 1fr; }
+@media (min-width: 1024px) { .rooftop-benefits { grid-template-columns: 1fr 1fr; gap: .75rem 1.75rem; } }
+.feature-list .ck.ck-fit { background: var(--solar-500); }
+.rooftop-types { margin-top: 3.5rem; }
+.rooftop-types-title { text-align: center; font-size: 1.375rem; font-weight: 700; color: var(--slate-800); margin-bottom: 1.75rem; }
+
+/* Photo gallery — grouped by category */
+.gcat { margin-top: 3rem; }
+.gcat:first-of-type { margin-top: 2.5rem; }
+.gcat-head { display: flex; align-items: flex-start; gap: .85rem; padding-bottom: 1rem; border-bottom: 2px solid var(--solar-100); }
+.gcat-ic { display: inline-flex; align-items: center; justify-content: center; height: 2.75rem; width: 2.75rem; flex-shrink: 0; border-radius: .8rem; color: #fff; background: radial-gradient(circle at 30% 20%, #ffd24a 0%, #ffa212 55%, #df1c00 100%); box-shadow: 0 8px 18px -8px rgba(223,28,0,.5); }
+.gcat-title { font-size: 1.3rem; font-weight: 700; color: var(--navy); }
+.gcat-desc { margin-top: .25rem; font-size: .9rem; color: var(--slate-600); }
+.photo-gallery { margin-top: 1.5rem; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.gphoto { position: relative; display: block; overflow: hidden; border-radius: var(--radius); aspect-ratio: 4 / 3; border: 1px solid var(--solar-100); box-shadow: 0 4px 22px -10px rgba(15,23,42,.22); }
+.gphoto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .55s ease; }
+.gphoto:hover img, .gphoto:focus-visible img { transform: scale(1.07); }
+.gphoto-cap { position: absolute; inset: auto 0 0 0; padding: 1.75rem .9rem .85rem; background: linear-gradient(to top, rgba(15,23,42,.85), rgba(15,23,42,.15) 70%, transparent); color: #fff; }
+.gphoto-badge { display: inline-block; font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; background: linear-gradient(135deg, #ffa212, #df1c00); color: #fff; padding: .22rem .55rem; border-radius: 9999px; margin-bottom: .45rem; }
+.gphoto-title { display: block; font-size: .95rem; font-weight: 600; line-height: 1.3; }
+
+/* Material Supply — net-metering stamp (sits beside the headline) */
+.material-supply { position: relative; overflow: hidden; }
+.material-supply .container { position: relative; }
+.bom-stamp { position: absolute; top: 4.25rem; right: 0.5rem; width: 8rem; height: 8rem; object-fit: cover; border-radius: 50%; transform: rotate(-12deg); box-shadow: 0 12px 28px -10px rgba(15,23,42,.45); z-index: 3; pointer-events: none; }
+@media (max-width: 1100px) { .bom-stamp { width: 6.25rem; height: 6.25rem; top: 3rem; right: 0.25rem; } }
+@media (max-width: 720px) { .bom-stamp { position: static; display: block; width: 7.5rem; height: 7.5rem; margin: 0 auto 1.25rem; transform: rotate(-6deg); } }
+
 /* ============================================================
    12. Process timeline
    ============================================================ */
@@ -488,7 +525,8 @@ html.js .is-revealed { opacity: 1 !important; transform: none !important; }
 .timeline-line { display: none; position: absolute; left: 50%; top: 2rem; bottom: 2rem; width: 1px; background: linear-gradient(to bottom, var(--solar-300), var(--solar-500), var(--solar-300)); }
 @media (min-width: 1024px) { .timeline-line { display: block; } }
 .timeline-grid { display: grid; gap: 1.5rem; }
-@media (min-width: 1024px) { .timeline-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 768px) { .timeline-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .timeline-grid { grid-template-columns: repeat(5, 1fr); } }
 .timeline-card { position: relative; background: #fff; padding: 1.5rem; border: 1px solid var(--solar-100); border-radius: var(--radius); box-shadow: 0 2px 20px -10px rgba(15,23,42,.1); }
 .timeline-top { display: flex; align-items: center; gap: .75rem; }
 .timeline-num { display: inline-flex; height: 3rem; width: 3rem; align-items: center; justify-content: center; border-radius: 9999px; color: #fff; font-size: 1.125rem; font-weight: 700; box-shadow: 0 8px 18px -6px rgba(223,28,0,.5); }
@@ -622,7 +660,7 @@ input[type="range"]::-moz-range-thumb { height: 1.25rem; width: 1.25rem; border:
 .stat-mini .l { font-size: .75rem; font-weight: 500; color: var(--slate-600); margin-top: .25rem; }
 .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .pillar { border-radius: var(--radius); padding: 1.5rem; border: 1px solid var(--solar-100); background: #fff; box-shadow: 0 2px 20px -10px rgba(15,23,42,.1); }
-.pillar.grad { color: #fff; border-color: transparent; }
+.pillar.grad { color: #fff; border-color: transparent; background: radial-gradient(circle at 30% 20%, #ffd24a 0%, #ffa212 45%, #df1c00 100%); }
 .pillar .p-icon { display: inline-flex; height: 3rem; width: 3rem; align-items: center; justify-content: center; border-radius: .75rem; background: var(--solar-100); color: var(--solar-600); }
 .pillar.grad .p-icon { background: rgba(255,255,255,.2); color: #fff; }
 .pillar h3 { margin-top: 1rem; font-size: 1.125rem; font-weight: 700; }
@@ -805,6 +843,17 @@ textarea.form-input { resize: vertical; }
 .wa-float:hover { transform: scale(1.08); box-shadow: 0 12px 30px -4px rgba(37,211,102,.7); }
 @keyframes wa-ripple { 0% { transform: scale(1); opacity: .5; } 100% { transform: scale(2); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .wa-float::before { animation: none; opacity: 0; } }
+
+/* Floating social-media icons (fixed, top-right) */
+.social-float { position: fixed; top: 6.75rem; right: 0; z-index: 45; display: flex; flex-direction: column; gap: .4rem; }
+.social-float .sf { display: inline-flex; align-items: center; justify-content: center; height: 2.5rem; width: 2.5rem; color: #fff; border-radius: .85rem 0 0 .85rem; box-shadow: -2px 4px 14px -4px rgba(15,23,42,.4); transition: width .15s ease, transform .15s ease; }
+.social-float .sf:hover { width: 2.9rem; transform: translateX(-2px); }
+.social-float .sf svg { flex-shrink: 0; }
+.sf-fb { background: #1877f2; }
+.sf-ig { background: linear-gradient(45deg, #f09433, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888); }
+.sf-yt { background: #ff0000; }
+@media (max-width: 1023px) { .social-float { top: 5.25rem; } .social-float .sf { height: 2.25rem; width: 2.25rem; } }
+@media (max-width: 480px) { .social-float { top: auto; bottom: 6.5rem; } }
 
 /* ============================================================
    26. Helpers

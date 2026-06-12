@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PPS_VERSION', '1.2.2' );
+define( 'PPS_VERSION', '1.3.2' );
 
 require_once get_template_directory() . '/inc/data.php';
 require_once get_template_directory() . '/inc/icons.php';
@@ -167,7 +167,7 @@ function pps_local_business_schema() {
 		'@type'                     => 'LocalBusiness',
 		'@id'                       => home_url( '/#business' ),
 		'name'                      => pps( 'name' ),
-		'description'               => 'Authorised TATA Power Solar channel partner in Rayalaseema. Rooftop solar, solar water heating & heat pumps, street lights, fencing, pumpsets and AMC.',
+		'description'               => 'Authorised TATA Power Solar channel partner in the Tirupati & Chittoor districts. Rooftop solar, solar water heating & heat pumps, street lights, fencing, pumpsets and AMC.',
 		'url'                       => home_url( '/' ),
 		'logo'                      => get_template_directory_uri() . '/assets/img/pps-logo-mark.png',
 		'image'                     => get_template_directory_uri() . '/assets/img/pps-logo-full.png',

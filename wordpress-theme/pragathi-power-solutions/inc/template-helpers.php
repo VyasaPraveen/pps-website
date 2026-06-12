@@ -162,7 +162,7 @@ function pps_benefit_card( $b ) {
 	<?php
 }
 
-/** Four-step process timeline. */
+/** Process timeline (one card per step). */
 function pps_process_timeline() {
 	?>
 	<div class="timeline">

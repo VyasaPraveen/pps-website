@@ -186,20 +186,37 @@
   /* Savings calculator */
   var UNIT_RATE = 8.5;
   var UNITS_PER_KW_PER_DAY = 4;
-  var COST_PER_KW = 65000;
-  var SUBSIDY_TABLE = { 1: 30000, 2: 60000, 3: 78000 };
-  var MAX_SUBSIDY = 78000;
   var SQ_FT_PER_KW = 80;
 
-  function estimateKw(bill) {
-    if (bill <= 0) return 1;
-    var desiredUnits = bill / UNIT_RATE;
-    var kw = desiredUnits / (UNITS_PER_KW_PER_DAY * 30);
-    return Math.max(1, Math.min(20, Math.round(kw)));
-  }
-  function getSubsidy(kw) {
-    if (kw >= 3) return MAX_SUBSIDY;
-    return SUBSIDY_TABLE[kw] || 0;
+  // Official Tata Power Solar system price list — total cost, PM Surya Ghar
+  // subsidy and net cost after subsidy for each system size (in rupees).
+  var SYSTEMS = [
+    { kw: 1,  total: 85000,   subsidy: 30000, net: 55000 },
+    { kw: 2,  total: 185000,  subsidy: 60000, net: 125000 },
+    { kw: 3,  total: 234000,  subsidy: 78000, net: 156000 },
+    { kw: 4,  total: 296000,  subsidy: 78000, net: 218000 },
+    { kw: 5,  total: 368000,  subsidy: 78000, net: 290000 },
+    { kw: 6,  total: 410000,  subsidy: 78000, net: 332000 },
+    { kw: 8,  total: 530000,  subsidy: 78000, net: 452000 },
+    { kw: 10, total: 630000,  subsidy: 78000, net: 552000 },
+    { kw: 12, total: 700000,  subsidy: 78000, net: 622000 },
+    { kw: 15, total: 900000,  subsidy: 0,     net: 900000 },
+    { kw: 18, total: 936000,  subsidy: 0,     net: 936000 },
+    { kw: 20, total: 1020000, subsidy: 0,     net: 1020000 },
+    { kw: 25, total: 1250000, subsidy: 0,     net: 1250000 }
+  ];
+
+  // Map a monthly bill to the closest available system size in the price list.
+  function pickSystem(bill) {
+    if (bill <= 0) return SYSTEMS[0];
+    var desiredKw = bill / UNIT_RATE / (UNITS_PER_KW_PER_DAY * 30);
+    var best = SYSTEMS[0];
+    var bestDiff = Infinity;
+    for (var i = 0; i < SYSTEMS.length; i++) {
+      var diff = Math.abs(SYSTEMS[i].kw - desiredKw);
+      if (diff < bestDiff) { bestDiff = diff; best = SYSTEMS[i]; }
+    }
+    return best;
   }
   function formatRupees(v) {
     try {
@@ -221,10 +238,10 @@
       var el = function (sel) { return root.querySelector(sel); };
       var update = function () {
         var bill = Number(range.value);
-        var kw = estimateKw(bill);
-        var grossCost = kw * COST_PER_KW;
-        var subsidy = getSubsidy(kw);
-        var netCost = grossCost - subsidy;
+        var sys = pickSystem(bill);
+        var kw = sys.kw;
+        var subsidy = sys.subsidy;
+        var netCost = sys.net;
         var monthlyUnits = kw * UNITS_PER_KW_PER_DAY * 30;
         var monthlySaving = Math.min(bill, monthlyUnits * UNIT_RATE);
         var annualSaving = monthlySaving * 12;

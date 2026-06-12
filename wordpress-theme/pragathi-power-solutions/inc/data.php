@@ -20,10 +20,10 @@ function pps_site() {
 		'short_name'    => 'PPS',
 		'tagline'       => 'Power from Sun to Power Everyone',
 		'tagline_hindi' => 'Ghar Ghar mei Suraj ki Shakti',
-		'founded'       => 'December 2012',
-		'designation'   => 'Authorised TATA Power Solar Partners in Rayalaseema',
+		'founded'       => '2012',
+		'designation'   => 'Authorised TATA Power Solar Channel Partners in Tirupati & Chittoor Districts',
 		'city'          => 'Tirupati',
-		'region'        => 'Rayalaseema, Andhra Pradesh',
+		'region'        => 'Tirupati & Chittoor Districts, Andhra Pradesh',
 		'address'       => 'Ground Floor, Ramanujam Circle, 19-3-12/J, Tiruchanoor Rd, Tirupati, Andhra Pradesh 517501',
 		'phone'         => '+91 9701426440',
 		'phone_raw'     => '919701426440',
@@ -166,18 +166,12 @@ function pps_services() {
 
 function pps_benefits() {
 	return array(
-		array( 'icon' => 'rupee', 'title' => 'Lower Bills', 'description' => 'Slash monthly electricity expenses by 70-90% from day one.' ),
-		array( 'icon' => 'sun', 'title' => 'Unlimited Energy', 'description' => 'Sunlight is infinite. Tirupati gets 300+ sunny days a year.' ),
-		array( 'icon' => 'leaf', 'title' => 'Clean & Green', 'description' => 'Zero emissions. Each kW saves ~1.2 tonnes of CO₂ every year.' ),
-		array( 'icon' => 'wrench', 'title' => 'Easy Care', 'description' => 'Just monthly cleaning. No moving parts, no fuel, no fuss.' ),
-		array( 'icon' => 'battery', 'title' => 'Self-Sufficient', 'description' => 'Reduce reliance on the grid with battery storage options.' ),
-		array( 'icon' => 'gift', 'title' => 'Govt. Subsidies', 'description' => 'Up to ₹78,000 under PM Surya Ghar Muft Bijli Yojana.' ),
-		array( 'icon' => 'home', 'title' => 'Higher Property Value', 'description' => 'Solar homes resell for measurably more in Indian metros.' ),
-		array( 'icon' => 'shield', 'title' => 'Continuous Supply', 'description' => 'Hybrid systems keep critical loads on during outages.' ),
-		array( 'icon' => 'scale', 'title' => 'Flexible Setup', 'description' => 'Scale from a 1 kW home to a megawatt commercial plant.' ),
-		array( 'icon' => 'rocket', 'title' => 'Advanced Tech', 'description' => 'Mono-PERC, bifacial and TopCon panels for maximum yield.' ),
-		array( 'icon' => 'mute', 'title' => 'Silent Operation', 'description' => 'Generates power in absolute silence. Zero noise pollution.' ),
-		array( 'icon' => 'trending', 'title' => 'Tax Benefits', 'description' => 'Accelerated depreciation and GST advantages for businesses.' ),
+		array( 'icon' => 'globe', 'title' => 'Reduce Carbon Emissions', 'description' => 'Every kW of solar offsets ~1.2 tonnes of CO₂ a year — shrinking your carbon footprint.' ),
+		array( 'icon' => 'tree', 'title' => 'Eco-Friendly', 'description' => 'Clean, renewable energy that protects nature for generations to come.' ),
+		array( 'icon' => 'rupee', 'title' => 'Cost Saving', 'description' => 'Slash electricity bills by 70–90% from day one and recover your investment in 4–6 years.' ),
+		array( 'icon' => 'battery', 'title' => 'Energy Independence', 'description' => 'Generate your own power and cut reliance on the grid and rising tariffs.' ),
+		array( 'icon' => 'sun', 'title' => 'Unlimited Energy', 'description' => 'Sunlight is infinite — Tirupati enjoys 300+ sunny days every year.' ),
+		array( 'icon' => 'shield', 'title' => 'Continuous Supply', 'description' => 'Hybrid systems with battery backup keep critical loads running through outages.' ),
 	);
 }
 
@@ -185,8 +179,9 @@ function pps_process() {
 	return array(
 		array( 'step' => 1, 'title' => 'Free Consultation', 'description' => 'Share your bill and roof details. We assess your needs over a call or visit at no cost.' ),
 		array( 'step' => 2, 'title' => 'Site Survey & Design', 'description' => 'Our engineers measure shading, structure load and orientation to design your custom plant.' ),
-		array( 'step' => 3, 'title' => 'Professional Installation', 'description' => 'Certified technicians install panels, inverters and net-meter as per CEIG and DISCOM norms.' ),
-		array( 'step' => 4, 'title' => 'Switch On & Save', 'description' => 'Plant is commissioned and you start generating clean power. We handle subsidy paperwork end-to-end.' ),
+		array( 'step' => 3, 'title' => 'Supply', 'description' => 'All materials are supplied as per the Tata Bill of Material (BOM). The major advantage is that the entire solar system is sourced from a single provider — including Solar Modules, Inverter, ACDB, DCDB, Earthing and Lightning Arrestor (LA) materials.' ),
+		array( 'step' => 4, 'title' => 'Professional Installation', 'description' => 'Certified technicians install panels, inverters and net-meter as per CEIG and DISCOM norms.' ),
+		array( 'step' => 5, 'title' => 'Switch On & Save', 'description' => 'Plant is commissioned and you start generating clean power. We handle subsidy paperwork end-to-end.' ),
 	);
 }
 
@@ -270,7 +265,7 @@ function pps_sectors() {
 	return array(
 		array( 'emoji' => '🏠', 'title' => 'Residential Homes', 'text' => '1 kW to 10 kW rooftop systems with full subsidy assistance for individual homes and apartments.' ),
 		array( 'emoji' => '🏨', 'title' => 'Hotels & Resorts', 'text' => 'Hybrid systems that handle 24x7 operations and ride through power cuts smoothly.' ),
-		array( 'emoji' => '🏭', 'title' => 'Factories & Industry', 'text' => '100 kW+ rooftop and ground-mount plants for manufacturing units across Rayalaseema.' ),
+		array( 'emoji' => '🏭', 'title' => 'Factories & Industry', 'text' => '100 kW+ rooftop and ground-mount plants for manufacturing units across the Tirupati & Chittoor districts.' ),
 		array( 'emoji' => '🏫', 'title' => 'Schools & Colleges', 'text' => 'Solar campuses that cut operating budgets and teach students about clean energy.' ),
 		array( 'emoji' => '🚜', 'title' => 'Farms & Agriculture', 'text' => 'PM-KUSUM solar pumpsets and farm electrification for irrigation and dairy.' ),
 		array( 'emoji' => '🏘️', 'title' => 'Gated Communities', 'text' => 'Common-area lighting, water pumping and street lights — fully solar.' ),
@@ -338,6 +333,7 @@ function pps_key_projects() {
 				array( 'PES – Kuppam', '500 KW' ),
 				array( 'Gayatri Hospital, Tirupati', '20 KW' ),
 				array( 'J.P. Dental Hospital, Tirupati', '15 KW' ),
+				array( 'Sneha Hospital', '—' ),
 			),
 		),
 		array(
@@ -388,7 +384,7 @@ function pps_gallery_tiles() {
 function pps_why_choose() {
 	return array(
 		array( 'stat' => '14+ yrs', 'title' => 'Industry Experience', 'text' => 'Over a decade of pure solar focus. We\'ve seen every roof type and use case.' ),
-		array( 'stat' => 'TATA', 'title' => 'Premium Hardware', 'text' => 'Authorised TATA Power Solar partners. Tier-1 panels with 25-year warranty.' ),
+		array( 'stat' => 'TATA', 'title' => 'Premium Hardware', 'text' => 'Authorised TATA Power Solar Channel partners. Tier-1 panels with 25-year warranty.' ),
 		array( 'stat' => '4700+', 'title' => 'Customers Powered', 'text' => 'From village homes to gated villas, our installations span every segment.' ),
 		array( 'stat' => '100%', 'title' => 'Local Service', 'text' => 'Tirupati-based engineering team. We answer the phone every single time.' ),
 	);

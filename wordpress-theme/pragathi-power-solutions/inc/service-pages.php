@@ -26,7 +26,7 @@ function pps_service_pages() {
 	return array(
 		'solar-rooftop-systems' => array(
 			'title'    => 'Solar Rooftop Systems',
-			'intro'    => 'Turn your rooftop into a power plant. We design, supply and install on-grid, off-grid and hybrid rooftop solar systems for homes, housing societies, commercial buildings and industries across Tirupati and Rayalaseema — engineered with Tata Power Solar components and backed by full subsidy and net-metering support.',
+			'intro'    => 'Turn your rooftop into a power plant. We design, supply and install on-grid, off-grid and hybrid rooftop solar systems for homes, housing societies, commercial buildings and industries across the Tirupati & Chittoor districts — engineered with Tata Power Solar components and backed by full subsidy and net-metering support.',
 			'included_heading' => 'Key Benefits',
 			'included' => array(
 				'Reduce electricity bills by up to 80–90%',

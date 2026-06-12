@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 
 pps_page_header(
-	'Lighting up Tirupati with the power of the sun.',
-	sprintf( "Founded in %s by industry veterans, Pragathi Power Solutions is Rayalaseema's most trusted name in solar — and the authorised TATA Power Solar partner for the region.", pps( 'founded' ) ),
+	'Powering Up with the Power of the Sun',
+	sprintf( "Founded in %s by industry veterans, Pragathi Power Solutions is the most trusted name in solar across the Tirupati & Chittoor districts — and the authorised TATA Power Solar Channel Partner for the region.", pps( 'founded' ) ),
 	array(
 		array( 'label' => 'Home', 'href' => home_url( '/' ) ),
 		array( 'label' => 'About Us' ),
@@ -27,10 +27,10 @@ pps_page_header(
 	<div class="container about-grid">
 		<div>
 			<span class="eyebrow">Our Story</span>
-			<h2 class="lead-h2">Over a decade of pioneering clean energy in Rayalaseema</h2>
+			<h2 class="lead-h2">Over a decade of pioneering clean energy in the Tirupati &amp; Chittoor Districts</h2>
 			<div class="prose">
 				<p>Pragathi Power Solutions (PPS) was founded in <?php echo esc_html( pps( 'founded' ) ); ?> by <strong>Mr. K. Chandra Sekhar</strong> and <strong>Mr. Balaji Kiran Gilledu</strong> with a single mission — to put the power of the sun into every home, farm and business in Andhra Pradesh.</p>
-				<p>Headquartered at Ramanujam Circle in Tirupati, we have grown into Rayalaseema&rsquo;s most trusted solar partner, with installations spanning residential rooftops, schools, hotels, factories and farmlands. Our designation as <strong>Authorised TATA Power Solar Partners</strong> means our customers get tier-1 panels and inverters — backed by a name India trusts.</p>
+				<p>Headquartered at Ramanujam Circle in Tirupati, we have grown into the most trusted solar partner across the Tirupati &amp; Chittoor districts, with installations spanning residential rooftops, schools, hotels, factories and farmlands. Our designation as <strong>Authorised TATA Power Solar Channel Partners</strong> means our customers get tier-1 panels and inverters — backed by a name India trusts.</p>
 				<p>More than a decade on, we still answer every call ourselves, run every site survey personally, and stand behind every kilowatt we install.</p>
 			</div>
 			<div class="stat-mini-grid">
@@ -46,10 +46,10 @@ pps_page_header(
 		<div class="pillars">
 			<?php
 			$pillars = array(
-				array( 'icon' => 'sun', 'title' => 'Mission', 'text' => 'Make solar the default choice for every roof in Rayalaseema by 2030.', 'grad' => true ),
+				array( 'icon' => 'sun', 'title' => 'Mission', 'text' => 'Make solar the default choice for every roof in the Tirupati & Chittoor districts by 2030.', 'grad' => true ),
 				array( 'icon' => 'leaf', 'title' => 'Vision', 'text' => 'A self-sufficient, carbon-free South India powered by clean energy.', 'grad' => false ),
 				array( 'icon' => 'shield', 'title' => 'Values', 'text' => 'Honest pricing, premium components, and lifelong service.', 'grad' => false ),
-				array( 'icon' => 'check', 'title' => 'Promise', 'text' => 'If we install it, we stand behind it. End-to-end ownership.', 'grad' => true ),
+				array( 'icon' => 'rocket', 'title' => 'Strengths', 'text' => '14+ years of expertise, an in-house engineering team and Tata-grade components — delivered end to end with local Tirupati service.', 'grad' => true ),
 			);
 			foreach ( $pillars as $p ) :
 				$cls = $p['grad'] ? 'pillar grad sun-gradient' : 'pillar';

@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div>
 				<span class="footer-logo"><?php pps_logo_mark(); ?></span>
 				<p class="footer-brand-name"><?php echo esc_html( pps( 'name' ) ); ?></p>
-				<p class="footer-about"><?php echo esc_html( pps( 'designation' ) ); ?>. Powering homes, farms and businesses across Tirupati and Rayalaseema since 2012.</p>
+				<p class="footer-about"><?php echo esc_html( pps( 'designation' ) ); ?>. Powering homes, farms and businesses across the Tirupati &amp; Chittoor districts since 2012.</p>
 				<div class="footer-social">
 					<a href="<?php echo esc_url( pps( 'facebook' ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><?php pps_icon( 'facebook', 18 ); ?></a>
 					<a href="<?php echo esc_url( pps( 'instagram' ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><?php pps_icon( 'instagram', 18 ); ?></a>
@@ -63,6 +63,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	</div>
 </footer>
+
+<div class="social-float" aria-label="Follow Pragathi Power Solutions on social media">
+	<a href="<?php echo esc_url( pps( 'facebook' ) ); ?>" target="_blank" rel="noopener noreferrer" class="sf sf-fb" aria-label="Facebook"><?php pps_icon( 'facebook', 18 ); ?></a>
+	<a href="<?php echo esc_url( pps( 'instagram' ) ); ?>" target="_blank" rel="noopener noreferrer" class="sf sf-ig" aria-label="Instagram"><?php pps_icon( 'instagram', 18 ); ?></a>
+	<a href="<?php echo esc_url( pps( 'youtube' ) ); ?>" target="_blank" rel="noopener noreferrer" class="sf sf-yt" aria-label="YouTube"><?php pps_icon( 'youtube', 18 ); ?></a>
+</div>
 
 <a href="<?php echo esc_url( pps( 'whatsapp' ) ); ?>" target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Chat on WhatsApp">
 	<?php pps_icon( 'whatsapp', 28 ); ?>

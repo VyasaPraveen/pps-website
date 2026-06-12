@@ -14,7 +14,7 @@ get_header();
 
 pps_page_header(
 	'Real plants. Real savings. Real customers.',
-	"A snapshot of solar systems we've installed across Rayalaseema — from family rooftops to industrial sheds.",
+	"A snapshot of solar systems we've installed across the Tirupati & Chittoor districts — from family rooftops to industrial sheds.",
 	array(
 		array( 'label' => 'Home', 'href' => home_url( '/' ) ),
 		array( 'label' => 'Projects' ),
@@ -49,7 +49,7 @@ pps_page_header(
 <!-- BY THE NUMBERS -->
 <section class="section-pad bg-soft-up">
 	<div class="container">
-		<?php pps_section_header( 'By the Numbers', 'Solar at scale across Rayalaseema' ); ?>
+		<?php pps_section_header( 'By the Numbers', 'Solar at scale across the Tirupati & Chittoor Districts' ); ?>
 		<div class="bignum-grid">
 			<?php
 			$nums = array(

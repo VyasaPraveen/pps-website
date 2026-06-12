@@ -83,9 +83,56 @@ get_header();
 <!-- SERVICES -->
 <section class="section-pad">
 	<div class="container">
-		<?php pps_section_header( 'What We Offer', 'End-to-End Solar Solutions, Backed by Expertise', 'We have rich experience in solar rooftop 1 KW to megawatt solar power plants — including solar hybrid systems, solar hot water, solar street lights, solar fencing, solar agriculture pump sets & any solar power services.' ); ?>
+		<?php pps_section_header( 'What We Offer', 'Expertise End-to-End Solar Solutions', 'We have rich experience in solar rooftop 1 KW to megawatt solar power plants — including solar hybrid systems, solar hot water, solar street lights, solar fencing, solar agriculture pump sets & any solar power services.' ); ?>
 		<div class="cards-3">
 			<?php foreach ( pps_services() as $s ) { pps_service_card( $s ); } ?>
+		</div>
+	</div>
+</section>
+
+<!-- SOLAR ROOFTOP SYSTEMS -->
+<section class="section-pad bg-soft-down" id="rooftop">
+	<div class="container">
+		<?php pps_section_header( 'Rooftop Solar', 'Solar Rooftop Systems', 'Solar rooftop systems generate electricity using solar panels installed on your rooftop. Sized to your power needs and usage, they cut your dependence on grid power and significantly lower your monthly electricity bills.' ); ?>
+
+		<?php $rooftop = pps_service_pages()['solar-rooftop-systems']; ?>
+		<div class="rooftop-cols">
+			<div class="card rooftop-col">
+				<h3 class="rooftop-col-title"><span class="rooftop-col-ic ic-key"><?php pps_icon( 'check', 20 ); ?></span> Key Benefits</h3>
+				<ul class="feature-list rooftop-benefits">
+					<?php foreach ( $rooftop['included'] as $benefit ) : ?>
+						<li><span class="ck"><?php pps_icon( 'check', 14 ); ?></span><span><?php echo esc_html( $benefit ); ?></span></li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+			<div class="card rooftop-col">
+				<h3 class="rooftop-col-title"><span class="rooftop-col-ic ic-fit"><?php pps_icon( 'home', 20 ); ?></span> Suitable For</h3>
+				<ul class="feature-list">
+					<?php foreach ( $rooftop['suitable_for'] as $place ) : ?>
+						<li><span class="ck ck-fit"><?php pps_icon( 'home', 14 ); ?></span><span><?php echo esc_html( $place ); ?></span></li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		</div>
+
+		<div class="rooftop-types">
+			<h3 class="rooftop-types-title">There are three main types of solar rooftop systems</h3>
+			<div class="cards-3">
+				<?php
+				$rooftop_types = array(
+					array( 'icon' => 'bolt', 'title' => 'On-Grid Solar System', 'description' => 'Grid-connected with net metering — export surplus power to the grid and earn credits. The most economical option, with no batteries required.' ),
+					array( 'icon' => 'battery', 'title' => 'Off-Grid Solar System', 'description' => 'Battery-backed and fully independent of the grid. Ideal for remote sites or areas with frequent, long power cuts.' ),
+					array( 'icon' => 'shield', 'title' => 'Hybrid System', 'description' => 'Combines a grid connection with battery backup — cut your bills while keeping essential loads running right through outages.' ),
+				);
+				foreach ( $rooftop_types as $rt ) :
+					?>
+					<div class="benefit-card card-hover">
+						<span class="benefit-icon"><?php pps_icon( $rt['icon'], 24 ); ?></span>
+						<h3 class="benefit-title"><?php echo esc_html( $rt['title'] ); ?></h3>
+						<p class="benefit-desc"><?php echo esc_html( $rt['description'] ); ?></p>
+					</div>
+				<?php endforeach; ?>
+			</div>
 		</div>
 	</div>
 </section>
@@ -93,8 +140,8 @@ get_header();
 <!-- BENEFITS -->
 <section class="section-pad bg-soft-up">
 	<div class="container">
-		<?php pps_section_header( 'Why Solar', '12 reasons to switch to solar today', "Solar isn't just clean — it's the smartest financial decision a homeowner or business can make in 2026." ); ?>
-		<div class="cards-4">
+		<?php pps_section_header( 'Why Solar', 'Why you have to switch to solar today?', "Solar isn't just clean — it's the smartest financial decision a homeowner or business can make in 2026." ); ?>
+		<div class="cards-3">
 			<?php foreach ( pps_benefits() as $b ) { pps_benefit_card( $b ); } ?>
 		</div>
 	</div>
@@ -154,7 +201,7 @@ get_header();
 <!-- PROCESS -->
 <section class="section-pad bg-soft-down">
 	<div class="container">
-		<?php pps_section_header( 'How It Works', 'Solar in four simple steps', 'From the first call to the day your meter starts spinning backwards — we handle everything.' ); ?>
+		<?php pps_section_header( 'How It Works', 'Solar Setup Process', 'From the first call to the day your meter starts spinning backwards — we handle everything.' ); ?>
 		<div style="margin-top:3rem"><?php pps_process_timeline(); ?></div>
 	</div>
 </section>
@@ -177,8 +224,8 @@ get_header();
 			</div>
 			<div>
 				<span class="eyebrow">Authorised Partner</span>
-				<h2 class="lead-h2">We&rsquo;re TATA Power Solar Partners in Rayalaseema</h2>
-				<p class="lead-p">Pragathi Power Solutions has been a trusted name in solar since <?php echo esc_html( pps( 'founded' ) ); ?>. As authorised TATA Power Solar partners, we deliver the most reliable solar technology backed by India&rsquo;s most trusted brand — with local service you can count on.</p>
+				<h2 class="lead-h2">We&rsquo;re TATA Power Solar Channel Partners in the Tirupati &amp; Chittoor Districts</h2>
+				<p class="lead-p">Pragathi Power Solutions has been a trusted name in solar since <?php echo esc_html( pps( 'founded' ) ); ?>. As authorised TATA Power Solar Channel partners, we deliver the most reliable solar technology backed by India&rsquo;s most trusted brand — with local service you can count on.</p>
 				<ul class="feature-list">
 					<?php
 					$features = array(
@@ -208,7 +255,7 @@ get_header();
 		<?php pps_section_header( 'Why Choose Us', 'Why Choose Tata Power Solar + Pragathi Power Solutions', 'The right choice for a safe, reliable and long-lasting solar solution — compared point by point.' ); ?>
 		<div class="compare" style="margin-top:3rem">
 			<div class="compare-head">
-				<span class="ch-bad">Local Vendors / Ordinary Installers</span>
+				<span class="ch-bad">Local Vendors</span>
 				<span class="ch-good">Pragathi Power Solutions + Tata Power Solar</span>
 			</div>
 			<?php foreach ( pps_compare() as $row ) : ?>
@@ -226,8 +273,9 @@ get_header();
 </section>
 
 <!-- MATERIAL SUPPLY -->
-<section class="section-pad bg-soft-down">
+<section class="section-pad bg-soft-down material-supply">
 	<div class="container">
+		<img class="bom-stamp" src="<?php echo esc_url( pps_img( 'net-metering-stamp.jpg' ) ); ?>" alt="Experts in Solar Net Metering Systems — End to End Support with NREDCAP &amp; APSPDCL" width="150" height="150" loading="lazy" decoding="async" />
 		<?php pps_section_header( 'Material Supply', 'Single Source. Single Warranty. Total Peace of Mind with Tata Power Solar', 'Your entire solar system is sourced from a single trusted provider, ensuring seamless service and hassle-free support.' ); ?>
 		<div class="split" style="margin-top:3rem">
 			<div class="card supply-card">
@@ -255,7 +303,7 @@ get_header();
 <!-- OUR IMPACT -->
 <section class="section-pad impact-section">
 	<div class="container">
-		<?php pps_section_header( 'Our Impact', 'Pragathi Power Solutions Has Installed 30 MW of Solar', 'And that 30 MW is already making a real difference. As on 31 March 2026, here is the environmental and social impact our installations deliver for the planet and society.' ); ?>
+		<?php pps_section_header( 'Our Impact', 'Pragathi Power Solutions Has Installed 30 MW of Solar Power', 'And that 30 MW is already making a real difference. As on 31 March 2026, here is the environmental and social impact our installations deliver for the planet and society.' ); ?>
 		<div class="impact-grid">
 			<?php foreach ( pps_impact() as $im ) : ?>
 				<div class="impact-card card-hover">
@@ -272,7 +320,7 @@ get_header();
 <!-- TESTIMONIALS -->
 <section class="section-pad bg-soft-up">
 	<div class="container">
-		<?php pps_section_header( 'Customer Voices', 'Trusted by 4700+ customers across Rayalaseema' ); ?>
+		<?php pps_section_header( 'Customer Voices', 'Trusted by 4700+ customers across Andhra Pradesh' ); ?>
 		<div class="testi-grid">
 			<?php foreach ( pps_testimonials() as $t ) : ?>
 				<figure class="testi card-hover">
